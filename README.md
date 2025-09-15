@@ -72,6 +72,4 @@ Screenshots are stored in assets/screenshots.
 
 - Output 3: Favorites (heart) icon.
   <img src="assets/screenshots/output_3.jpg" alt="Favorites heart icon" width="360" />
-  <img src="assets/screenshots/output_2.jpg" alt="Project Output" width="360" />
-  <img src="assets/screenshots/output_3.jpg" alt="Project Output" width="360" />
   -->
