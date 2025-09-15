@@ -64,12 +64,12 @@ MaterialApp
 
 Screenshots are stored in assets/screenshots.
 
-- Output 1: Single thumbs icon.
-  <img src="assets/screenshots/output_1.jpg" alt="Single thumbs up icon" width="360" />
+- Output 1: Single thumbs icon.  
+  <img src="assets/screenshots/output_1.jpg" alt="Single thumbs up icon" width="300" height="auto" />
 
-- Output 2: Three thumbs icons arranged using Row and Column.
-  <img src="assets/screenshots/output_2.jpg" alt="Three thumbs icons in Row and Column layout" width="360" />
+- Output 2: Three thumbs icons arranged using Row and Column.  
+  <img src="assets/screenshots/output_2.jpg" alt="Three thumbs icons in Row and Column layout" width="300" height="auto" />
 
-- Output 3: Favorites (heart) icon.
-  <img src="assets/screenshots/output_3.jpg" alt="Favorites heart icon" width="360" />
-  -->
+- Output 3: Favorites (heart) icon.  
+  <img src="assets/screenshots/output_3.jpg" alt="Favorites heart icon" width="300" height="auto" />
+
