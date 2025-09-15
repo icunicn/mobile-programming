@@ -1,4 +1,4 @@
-# row_and_column
+# Praktikum 1 Row and Column
 
 A new Flutter project.
 
