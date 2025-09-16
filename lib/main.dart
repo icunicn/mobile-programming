@@ -9,29 +9,34 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Row and Column',
+      title: 'Alignment',
       home: Scaffold(
-        appBar: AppBar(title: Text('Row and Column')),
+        appBar: AppBar(title: Text('Alignment')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  KotakWarna(warna: Colors.blue, label: 'Blue'),
-                  SizedBox(width: 20),
-                  KotakWarna(warna: Colors.green, label: 'Green'),
-                ],
+              Text(
+                'Malang',
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 80),
+              Text(
+                '28\u00B0C',
+                style: TextStyle(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Roboto',
+                ),
+              ),
+              SizedBox(height: 100),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  KotakWarna(warna: Colors.orange, label: 'Orange'),
-                  SizedBox(width: 20),
-                  KotakWarna(warna: Colors.purple, label: 'Purple'),
-                ],
+                  SunnyWheter(day: 'Minggu', temp: '20\u00B0C'),
+                  RainWheter(day: 'Senin', temp: '22\u00B0C'),
+                  CloudyWheter(day: 'Selasa', temp: '18\u00B0C'),
+                ], // or RainWheter(), CloudyWheter()
               ),
             ],
           ),
@@ -41,31 +46,110 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class KotakWarna extends StatelessWidget {
-  final Color warna;
-  final String label;
+class SunnyWheter extends StatelessWidget {
+  final String day;
+  final String temp;
 
-  const KotakWarna({Key? key, required this.warna, required this.label})
-    : super(key: key);
+  const SunnyWheter({super.key, required this.day, required this.temp});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 130,
-      decoration: BoxDecoration(
-        color: warna,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(12),
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.favorite, color: Colors.red, size: 50),
           SizedBox(height: 10),
           Text(
-            label,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            day,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 5),
+          Icon(Icons.sunny, color: Colors.black, size: 20),
+          SizedBox(height: 5),
+          Text(
+            temp,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class RainWheter extends StatelessWidget {
+  final String day;
+  final String temp;
+
+  const RainWheter({super.key, required this.day, required this.temp});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(height: 10),
+          Text(
+            day,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 5),
+          Icon(Icons.cloudy_snowing, color: Colors.black, size: 20),
+          SizedBox(height: 5),
+          Text(
+            temp,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CloudyWheter extends StatelessWidget {
+  final String day;
+  final String temp;
+  const CloudyWheter({super.key, required this.day, required this.temp});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(height: 10),
+          Text(
+            day,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: 5),
+          Icon(Icons.cloud, color: Colors.black, size: 20),
+          SizedBox(height: 5),
+          Text(
+            temp,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
           ),
         ],
       ),
