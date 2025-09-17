@@ -1,5 +1,4 @@
-# Flutter Basic Widget
-# Praktikum 2 Layout Row and Column
+# Praktikum Modul 2 Layout Row and Column
 
 ## Documentation: lib/main.dart
 
