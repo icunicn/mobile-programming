@@ -9,65 +9,79 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Row and Column',
-      home: Scaffold(
-        appBar: AppBar(title: Text('Row and Column')),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  KotakWarna(warna: Colors.blue, label: 'Blue'),
-                  SizedBox(width: 20),
-                  KotakWarna(warna: Colors.green, label: 'Green'),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  KotakWarna(warna: Colors.orange, label: 'Orange'),
-                  SizedBox(width: 20),
-                  KotakWarna(warna: Colors.purple, label: 'Purple'),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+      title: 'Music Player',
+      theme: ThemeData.dark(), // Changed to dark theme
+      home: PemutarMusikApp(),
     );
   }
 }
 
-class KotakWarna extends StatelessWidget {
-  final Color warna;
-  final String label;
-
-  const KotakWarna({Key? key, required this.warna, required this.label})
-    : super(key: key);
-
+class PemutarMusikApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 130,
-      decoration: BoxDecoration(
-        color: warna,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(12),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.music_note, size: 120, color: Colors.white70),
+            SizedBox(height: 20),
+            Text(
+              'Pemutar Musik',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Currently no song is playing',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+          ],
+        ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.favorite, color: Colors.red, size: 50),
-          SizedBox(height: 10),
-          Text(
-            label,
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ],
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 28, vertical: 20),
+        color: Colors.black54,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: IconButton(
+                icon: Icon(Icons.shuffle, color: Colors.white),
+                onPressed: () {},
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                icon: Icon(Icons.skip_previous, color: Colors.white),
+                onPressed: () {},
+              ),
+            ),
+            Flexible(
+              flex: 2,
+              fit: FlexFit.tight,
+              child: IconButton(
+                icon: Icon(
+                  Icons.play_circle_fill,
+                  color: Colors.white,
+                  size: 40,
+                ),
+                onPressed: () {},
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                icon: Icon(Icons.skip_next, color: Colors.white),
+                onPressed: () {},
+              ),
+            ),
+            Expanded(
+              child: IconButton(
+                icon: Icon(Icons.repeat, color: Colors.white),
+                onPressed: () {},
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
