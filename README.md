@@ -2,19 +2,6 @@
 
 A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
 ## Documentation: lib/main.dart
 
 ### Overview
@@ -64,12 +51,15 @@ MaterialApp
 
 Screenshots are stored in assets/screenshots.
 
-- Output 1: Single thumbs icon.  
-  <img src="assets/screenshots/output_1.jpg" alt="Single thumbs up icon" width="300" height="auto" />
+- Output 1: Single thumbs icon.
+  
+  <img src="assets/screenshots/output_1.jpg" alt="Single thumbs up icon" width="200" height="auto" />
 
-- Output 2: Three thumbs icons arranged using Row and Column.  
-  <img src="assets/screenshots/output_2.jpg" alt="Three thumbs icons in Row and Column layout" width="300" height="auto" />
+- Output 2: Three thumbs icons arranged using Row and Column.
+  
+  <img src="assets/screenshots/output_2.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
 
-- Output 3: Favorites (heart) icon.  
-  <img src="assets/screenshots/output_3.jpg" alt="Favorites heart icon" width="300" height="auto" />
+- Output 3: Favorites (heart) icon.
+  
+  <img src="assets/screenshots/output_3.jpg" alt="Favorites heart icon" width="200" height="auto" />
 
