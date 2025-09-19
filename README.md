@@ -1,4 +1,4 @@
-# Praktikum 1 Row and Column
+# Praktikum Modul 2 Row and Column
 
 A new Flutter project.
 
