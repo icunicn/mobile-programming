@@ -10,14 +10,17 @@ Repository ini digunakan untuk pemrograman mobile pada semester 5 UIN Maulana Ma
 
 Screenshots are stored in assets/screenshots.
 
-- Output Modul 1:  
-  <img src="assets/screenshots/1.jpg" alt="Single thumbs up icon" width="150" height="auto" />
+- Output Modul 1:
+  
+  <img src="assets/screenshots/1.jpg" alt="Single thumbs up icon" width="200" height="auto" />
 
 - Output Modul 2:
-  <img src="assets/screenshots/2.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
+  
+  <img src="assets/screenshots/2.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
 
 - Output Modul 3:
-  <img src="assets/screenshots/3.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
+  
+  <img src="assets/screenshots/3.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
 
 - Output Modul 4:
   <img src="assets/screenshots/4.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
@@ -27,3 +30,4 @@ Screenshots are stored in assets/screenshots.
 
 - Output Modul 6:
   <img src="assets/screenshots/6.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
+  
