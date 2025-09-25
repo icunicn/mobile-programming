@@ -1,4 +1,4 @@
-# Praktikum Modul 5 Widget SizedBox, Spacer, dan Card
+# Praktikum Modul 6 Widget GridView, ListView, GridView.builder, dan ListView.builder
 
 A new Flutter project.
 
@@ -25,19 +25,3 @@ Screenshots are stored in assets/screenshots.
 - Output 5:
 
   <img src="assets/screenshots/5.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
-
-- Output 6:
-
-  <img src="assets/screenshots/6.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
-
-- Output 7:
-
-  <img src="assets/screenshots/7.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
-
-- Output 8:
-
-  <img src="assets/screenshots/8.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
-
-- Output 9:
-
-  <img src="assets/screenshots/9.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
