@@ -165,23 +165,33 @@ class KotakWarna extends StatelessWidget {
 
 Screenshots are stored in assets/screenshots.
 
-- Output 1:  
-  <img src="assets/screenshots/flexible_1.jpg" alt="Single thumbs up icon" width="300" height="auto" />
+- Output 1:
 
-- Output 2:  
-  <img src="assets/screenshots/flexible_tight.jpg" alt="Three thumbs icons in Row and Column layout" width="300" height="auto" />
+  <img src="assets/screenshots/flexible_1.jpg" alt="Single thumbs up icon" width="150" height="auto" />
+
+- Output 2:
+
+  <img src="assets/screenshots/flexible_tight.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
 
 - Output 3:  
-  <img src="assets/screenshots/flexible_loose.jpg" alt="Favorites heart icon" width="300" height="auto" />
+  <img src="assets/screenshots/flexible_loose.jpg" alt="Favorites heart icon" width="150" height="auto" />
 
-- Output 4: Flexible vs Expanded widgets  
-  <img src="assets/screenshots/expand_1.jpg" alt="Comparison of Flexible and Expanded widgets" width="300" height="auto" />
+- Output 4: Flexible vs Expanded widgets
 
-- Output 5: Flexible with different flex factors  
-  <img src="assets/screenshots/expand-1 and flex.jpg" alt="Flexible widgets with various flex values" width="300" height="auto" />
+  <img src="assets/screenshots/expand_1.jpg" alt="Comparison of Flexible and Expanded widgets" width="150" height="auto" />
 
-- Output 6: Expanded widgets in a Column  
-  <img src="assets/screenshots/expand-2 and flex.jpg" alt="Expanded widgets in a Column layout" width="300" height="auto" />
+- Output 5: Flexible with different flex factors
 
-- Output 7: Flexible with different flex factors  
-  <img src="assets/screenshots/expand and flex-fit-loose.jpg" alt="Flexible widgets with various flex values" width="300" height="auto" />  
+  <img src="assets/screenshots/expand-1 and flex.jpg" alt="Flexible widgets with various flex values" width="150" height="auto" />
+
+- Output 6: Expanded widgets in a Column
+
+  <img src="assets/screenshots/expand-2 and flex.jpg" alt="Expanded widgets in a Column layout" width="150" height="auto" />
+
+- Output 7: Flexible with different flex factors
+
+  <img src="assets/screenshots/expand and flex-fit-loose.jpg" alt="Flexible widgets with various flex values" width="150" height="auto" />
+
+- Output 8:
+
+  <img src="assets/screenshots/5.jpg" alt="Expanded widgets in a Column layout" width="150" height="auto" />
