@@ -23,10 +23,13 @@ Screenshots are stored in assets/screenshots.
   <img src="assets/screenshots/3.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
 
 - Output Modul 4:
+  
   <img src="assets/screenshots/4.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
 
 - Output Modul 5:
+  
   <img src="assets/screenshots/5.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
 
 - Output Modul 6:
+  
   <img src="assets/screenshots/6.jpg" alt="Three thumbs icons in Row and Column layout" width="150" height="auto" />
