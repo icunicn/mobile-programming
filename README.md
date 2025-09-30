@@ -153,4 +153,4 @@ children: [
             ),
           ],
 ```
-  <img src="assets/screenshots/5.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
+  <img src="assets/screenshots/6.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
