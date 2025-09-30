@@ -1,4 +1,4 @@
-# Praktikum Modul 6 Widget GridView, ListView, GridView.builder, dan ListView.builder
+# Praktikum Modul 7 Navigation Beetwen Pages Using MaterialPageRoute and Named Route
 
 A new Flutter project.
 
