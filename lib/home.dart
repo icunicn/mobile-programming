@@ -1,74 +1,107 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'screen_argument.dart';
 import 'tujuan.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var title, thumbnail, short_description, description;
+  var genre, platform, release, cover, gameid, publisher;
+
+  Future getGame(String gameid) async {
+    http.Response response = await http.get(
+      Uri.parse('https://www.freetogame.com/api/game?id=$gameid'),
+    );
+    var results = jsonDecode(response.body);
+    setState(() {
+      this.gameid = gameid;
+      title = results['title'];
+      thumbnail = results['thumbnail'];
+      short_description = results['short_description'];
+      description = results['description'];
+      genre = results['genre'];
+      platform = results['platform'];
+      publisher = results['publisher'];
+      release = results['release_date'];
+      cover = results['screenshots'][0]['image'];
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getGame('475'); // ambil 1 game default
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Halaman Home'),
-        backgroundColor: Colors.redAccent.shade100,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 2,
-        leading: const Icon(Icons.home),
-      ),
-      backgroundColor: Colors.redAccent.shade100,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Text(
-              'Banyak aplikasi memiliki beberapa layar untuk menampilkan informasi yang berbeda. Contohnya, ada layar untuk menampilkan daftar produk, layar untuk menampilkan detail produk, dan layar untuk menampilkan keranjang belanja.',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            ),
-            const SizedBox(height: 30),
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: Colors.white, // warna border
-                  width: 4, // ketebalan border
+      backgroundColor: const Color(0xFF0081c9),
+      body: SafeArea(
+        child: Center(
+          child: gameid == null
+              ? const CircularProgressIndicator()
+              : Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GestureDetector(
+                      child: Container(
+                        padding: const EdgeInsets.all(15),
+                        margin: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          children: [
+                            Image.network(thumbnail),
+                            const SizedBox(height: 15),
+                            Text(title, style: const TextStyle(fontSize: 24)),
+                            const SizedBox(height: 10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Genre: $genre"),
+                                    Text("Platform: $platform"),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Publisher: $publisher"),
+                                    Text("Release: $release"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          Tujuan.routeName,
+                          arguments: ScreenArgument(
+                            cover,
+                            title,
+                            description,
+                            short_description,
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              ),
-              child: ClipRRect(
-                child: Image.asset('assets/icon/house.png', fit: BoxFit.cover),
-              ),
-            ),
-            const SizedBox(height: 30),
-            const Text(
-              'Pertama kita perlu membuat dua halaman, yaitu halaman utama atau routes yang ingin kita tampilkan pertama kali saat aplikasi dijalankan, dan halaman tujuan yang akan dituju saat berpindah halaman. Selanjutnya kita gunakan method Navigator.push() pada tombol yang akan digunakan untuk berpindah halaman. Terakhir kita perlu kembali kehalaman pertama menggunakan method Navigator.pop() pada tombol yang ada di halaman tujuan.',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    Colors.blue.shade700, // Warna latar belakang tombol
-                foregroundColor: Colors.white, // Warna teks tombol
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 12,
-                ), // Padding di dalam tombol
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ), // Gaya teks tombol
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/tujuan');
-              },
-              child: const Text(
-                'ke Halaman Tujuan',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
         ),
       ),
     );

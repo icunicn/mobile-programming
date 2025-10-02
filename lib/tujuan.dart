@@ -1,74 +1,101 @@
+import 'screen_argument.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class TujuanPage extends StatelessWidget {
-  const TujuanPage({super.key});
+class Tujuan extends StatelessWidget {
+  const Tujuan({super.key});
+  static const routeName = '/extractArguments';
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
+
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Halaman Tujuan'),
-        backgroundColor: Colors.blue.shade700,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 2,
-        leading: const Icon(Icons.flag),
-      ),
-      backgroundColor: Colors.blue.shade700,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Text(
-              'Untuk berpindah halaman baru, gunakan metode Navigator.push(). Metode push() akan menambahkan Route ke dalam tumpukan route yang dikelola oleh navigator. route ini dapat dibuat secara kustom atau menggunakan MaterialPageRoute, yang memiliki animasi transisi sesuai dengan platform yang digunakan',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            ),
-            const SizedBox(height: 30),
-            // large icon here from assets
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  color: Colors.white, // warna border
-                  width: 4, // ketebalan border
+      backgroundColor: const Color(0xFFF94A29),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.maxFinite,
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF4F8FB),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.network(args.cover, fit: BoxFit.cover),
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        args.title,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 0, 47, 72),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        args.description,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 0, 47, 72),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              child: ClipRRect(
-                child: Image.asset('assets/icon/marks.png', fit: BoxFit.cover),
-              ),
+                const SizedBox(height: 25),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF0081c9),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 15,
+                        ),
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.arrow_back_ios_outlined,
+                              size: 15,
+                              color: Color(0xFFF4F8FB),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Kembali ke game',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Color(0xFFF4F8FB),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            const SizedBox(height: 30),
-            const Text(
-              'Untuk menutup halaman kedua dan kembali ke halaman sebelumnya, gunakan metode Navigator.pop(). Metode pop() akan menghapus Route teratas dari tumpukan route, sehingga menampilkan halaman sebelumnya.',
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    Colors.redAccent.shade100, // Warna latar belakang tombol
-                foregroundColor: Colors.white, // Warna teks tombol
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 12,
-                ), // Padding di dalam tombol
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ), // Gaya teks tombol
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'Kembali ke Halaman Home',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
