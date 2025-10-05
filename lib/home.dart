@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'screen_argument.dart';
+import 'screen_arguments.dart';
 import 'tujuan.dart';
 
 class Home extends StatefulWidget {
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    getGame('475'); // ambil 1 game default
+    getGame('1'); // ambil 1 game default
   }
 
   @override
@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                         Navigator.pushNamed(
                           context,
                           Tujuan.routeName,
-                          arguments: ScreenArgument(
+                          arguments: ScreenArguments(
                             cover,
                             title,
                             description,

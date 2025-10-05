@@ -1,6 +1,9 @@
-# Praktikum Modul 6 Widget GridView, ListView, GridView.builder, dan ListView.builder
+# Praktikum Modul 8 Navigation and Routing with call Args using Named Routes
 
 A new Flutter project.
+
+For Class Report you can check the document at:
+https://docs.google.com/document/d/19zQDdrq2FUWzsz5V-gkyA-jFy3l-hvUFOet_gqOeXVM/edit?usp=sharing
 
 ## Project Output (Screenshots)
 
@@ -49,4 +52,4 @@ onPressed: () {
 
 - Output 6: Task 2 to display Second Page with a button to navigate back to Home Page
 
-  <img src="assets/screenshots/5.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />
+  <img src="assets/screenshots/6.jpg" alt="Three thumbs icons in Row and Column layout" width="200" height="auto" />

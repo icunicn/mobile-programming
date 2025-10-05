@@ -1,4 +1,4 @@
-import 'screen_argument.dart';
+import 'screen_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -12,7 +12,7 @@ class Tujuan extends StatelessWidget {
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
 
-    final args = ModalRoute.of(context)!.settings.arguments as ScreenArgument;
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
     return Scaffold(
       backgroundColor: const Color(0xFFF94A29),
       body: SafeArea(
