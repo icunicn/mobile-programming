@@ -1,136 +1,110 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Stateful Widget Demo',
-      home: LikeButtonPage(),
-    );
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-class CounterPage extends StatefulWidget {
-  const CounterPage({super.key});
+class _MyAppState extends State<MyApp> {
+  late ValueNotifier<double> _valueNotifier;
+  late double counter;
 
   @override
-  _CounterPageState createState() => _CounterPageState();
-}
-
-class _CounterPageState extends State<CounterPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
+  void initState() {
+    super.initState();
+    _valueNotifier = ValueNotifier(0);
+    counter = 0;
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Counter App')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[700],
-                    minimumSize: const Size(100, 60),
-                  ),
-                  onPressed: _decrementCounter,
-                  child: const Text(
-                    'Kurang',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[700],
-                    minimumSize: const Size(100, 60),
-                  ),
-                  onPressed: _incrementCounter,
-                  child: const Text(
-                    'Tambah',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+  void dispose() {
+    _valueNotifier.dispose();
+    super.dispose();
   }
-}
 
-class LikeButtonPage extends StatefulWidget {
-  const LikeButtonPage({super.key});
-
-  @override
-  _LikeButtonPageState createState() => _LikeButtonPageState();
-}
-
-class _LikeButtonPageState extends State<LikeButtonPage> {
-  // Initialize any necessary state here
-  bool isLiked = false;
-  int _likecount = 10;
-
-  void _toggleLike() {
+  void incrementCounter() {
     setState(() {
-      if (isLiked) {
-        _likecount--;
-        isLiked = false;
-      } else {
-        _likecount++;
-        isLiked = true;
+      if (counter < 33) {
+        counter++;
+        _valueNotifier.value = (counter / 33) * 100;
       }
     });
   }
 
+  void resetCounter() {
+    setState(() {
+      counter = 0;
+      _valueNotifier.value = (counter / 33) * 100;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Like Button App')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(
-                isLiked ? Icons.favorite : Icons.favorite_border,
-                color: isLiked ? Colors.red : Colors.grey,
-                size: 48,
-              ),
-              onPressed: _toggleLike,
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 119, 210, 145),
+        ),
+        useMaterial3: true,
+      ),
+      home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 119, 210, 145),
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${(counter.round())}',
+                  style: const TextStyle(fontSize: 50),
+                ),
+                SimpleCircularProgressBar(
+                  progressColors: [Colors.amberAccent.shade400],
+                  size: 300,
+                  progressStrokeWidth: 20,
+                  backStrokeWidth: 10,
+                  mergeMode: true,
+                  maxValue: 100,
+                  animationDuration: 0,
+                  valueNotifier: _valueNotifier,
+                  onGetText: (value) {
+                    return Text(
+                      '${(value.toInt() / 3).round()}',
+                      style: const TextStyle(fontSize: 170),
+                    );
+                  },
+                ),
+                const SizedBox(height: 50),
+                ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(50)),
+                  child: InkWell(
+                    onTap: incrementCounter,
+                    child: Container(
+                      decoration: const BoxDecoration(color: Colors.white),
+                      child: const Icon(Icons.fingerprint, size: 125),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              '$_likecount Likes',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: resetCounter,
+          child: const Icon(Icons.refresh_outlined),
         ),
       ),
     );
